@@ -31,6 +31,12 @@ class Partner(models.Model):
         verbose_name = 'Partner'
         verbose_name_plural = 'Partner'
 
+    def absolute_url(self):
+        if self.url.__str__().startswith("http"):
+            return self.url
+        else:
+            return "http://" + self.url
+
     def __unicode__(self):
         return self.name
 
