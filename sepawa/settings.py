@@ -28,7 +28,10 @@ SECRET_KEY = '$kk4p-l*=_)ky$7rakuj0k=i#bxi=nnsb$!3hzoa9kr!otk^$)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'new.sepawa.ch',
+    'sepawa.ch'
+]
 
 
 # Application definition
