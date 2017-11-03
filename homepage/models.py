@@ -37,7 +37,7 @@ class Partner(models.Model):
         else:
             return "http://" + self.url
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class Adresse(models.Model):
@@ -81,7 +81,7 @@ class Adresse(models.Model):
         verbose_name = 'Adresse'
         verbose_name_plural = 'Adressen'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.vorname + ' ' + self.nachname
 
 class FotoGalerie(models.Model):
@@ -94,7 +94,7 @@ class FotoGalerie(models.Model):
         verbose_name = 'Fotogalerie'
         verbose_name_plural = 'Fotogalerien'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.titel
 
 class Foto(models.Model):
@@ -109,7 +109,7 @@ class Foto(models.Model):
         verbose_name = 'Foto'
         verbose_name_plural = 'Fotos'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.titel
 
 class Neuigkeit(models.Model):
@@ -123,7 +123,7 @@ class Neuigkeit(models.Model):
         verbose_name = 'Neuigkeit'
         verbose_name_plural = 'Neuigkeiten'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.titel
 
 class Anhang(models.Model):
@@ -137,5 +137,5 @@ class Anhang(models.Model):
         verbose_name = 'Anhang'
         verbose_name_plural = 'Anhänge'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.titel

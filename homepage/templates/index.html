@@ -286,6 +286,8 @@
                 {% for neuigkeit in neuigkeit_list %}
                     <h2>{{ neuigkeit.datum }} &mdash; {{ neuigkeit.titel }}</h2>
                     <p>{{ neuigkeit.inhalt|striptags|truncatewords:30|safe }}</p>
+                {% else %}
+                    <p>Keine Neuigkeiten vorhanden.</p>
                 {% endfor %}
             </div>
         </div>
