@@ -2,7 +2,7 @@
 
 NAME="sepawa"                              #Name of the application (*)
 DJANGODIR=/srv/sepawa             # Django project directory (*)
-SOCKFILE=/var/run/sepawa_gunicorn.sock        # we will communicate using this unix socket (*)
+SOCKFILE==/srv/sepawa/sepawa_gunicorn.sock        # we will communicate using this unix socket (*)
 USER=avi                                      # the user to run as (*)
 GROUP=users                                     # the group to run as (*)
 NUM_WORKERS=1                                     # how many worker processes should Gunicorn spawn (*)

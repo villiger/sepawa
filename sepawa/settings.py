@@ -31,6 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     'new.sepawa.ch',
+    'www.sepawa.ch',
     'sepawa.ch'
 ]
 
