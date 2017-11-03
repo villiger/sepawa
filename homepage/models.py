@@ -9,15 +9,15 @@ from tinymce.widgets import TinyMCE
 import binascii, os
 
 def partner_image_path(instance, filename):
-    hex_dig = binascii.b2a_hex(os.urandom(15))[:8]
+    hex_dig = binascii.hexlify(os.urandom(50))[:8].decode()
     return 'partner/{0}/{1}'.format(hex_dig, filename)
 
 def foto_image_path(instance, filename):
-    hex_dig = binascii.b2a_hex(os.urandom(15))[:8]
+    hex_dig = binascii.hexlify(os.urandom(50))[:8].decode()
     return 'foto/{0}/{1}'.format(hex_dig, filename)
 
 def anhang_path(instance, filename):
-    hex_dig = binascii.b2a_hex(os.urandom(15))[:8]
+    hex_dig = binascii.hexlify(os.urandom(50))[:8].decode()
     return 'anhang/{0}/{1}'.format(hex_dig, filename)
 
 class Partner(models.Model):

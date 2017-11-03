@@ -29,6 +29,7 @@ SECRET_KEY = '$kk4p-l*=_)ky$7rakuj0k=i#bxi=nnsb$!3hzoa9kr!otk^$)'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
     'new.sepawa.ch',
     'sepawa.ch'
 ]
