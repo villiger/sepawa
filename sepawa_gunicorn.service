@@ -3,7 +3,7 @@ Description=Sepawa gunicorn daemon
 
 [Service]
 Type=simple
-User=avi
+User=root
 ExecStart=/srv/sepawa/gunicorn_start.sh
 
 [Install]
