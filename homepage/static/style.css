@@ -142,11 +142,16 @@ label {
     width: 100%;
     background-color: white;
     text-align: center;
+    opacity: 0.8;
 }
 
 .partner a img {
     width: 100%;
     max-width: 157px;
+}
+
+.header .partner a {
+    opacity: 0.6;
 }
 
 .header .partner a img {
@@ -156,7 +161,6 @@ label {
     /* IE6-9 */
     -webkit-filter: grayscale(100%);
     /* Chrome 19+ & Safari 6+ */
-    opacity: 0.5;
 }
 
 .vorstand {
@@ -239,9 +243,12 @@ label {
         display: block;
     }
 
-    .partner:hover a img {
+    .partner a:hover {
+        opacity: 1;
+    }
+
+    .partner a:hover img {
         filter: none;
         -webkit-filter: grayscale(0%);
-        opacity: 1;
     }
 }
