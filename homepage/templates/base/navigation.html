@@ -1,0 +1,38 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'img/logo.png' %}" alt="Home">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/#neuigkeiten">Neuigkeiten</a>
+                    <span class="indicator"></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#partner">Partner</a>
+                    <span class="indicator"></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#portrait">Portrait</a>
+                    <span class="indicator"></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#links">Links</a>
+                    <span class="indicator"></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/intern">Intern</a>
+                    <span class="indicator"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -4,42 +4,7 @@
 
 {% block main %}
 <div class="header">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="{% static 'img/logo.png' %}" alt="Home" style="width: 220px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#neuigkeiten">Neuigkeiten</a>
-                        <span class="indicator"></span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#partner">Partner</a>
-                        <span class="indicator"></span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portrait">Portrait</a>
-                        <span class="indicator"></span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#links">Links</a>
-                        <span class="indicator"></span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/intern">Intern</a>
-                        <span class="indicator"></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include 'base/navigation.html' %}
     <div class="container">
         <div class="welcome">
             <p>
@@ -51,14 +16,13 @@
                 <li>Kosmetik</li>
                 <li>Parfümerie</li>
             </ul>
-            <div class="bracket d-none d-lg-block d-xl-block">”</div>
+            <div class="bracket d-none d-sm-block">”</div>
         </div>
-        <div class="welcome-partner d-none d-lg-block d-xl-block">
-            <div class="floating-container">
+        <div class="d-none d-sm-block">
+            <div class="row partner-container featured-partner">
                 {% for partner in partner_featured %}
                     {% include 'index.partner.html' %}
                 {% endfor %}
-                <div class="clear"></div>
             </div>
         </div>
     </div>
@@ -82,11 +46,10 @@
 <div class="darker">
     <div class="container">
         <h1>Partner</h1>
-        <div class="floating-container">
+        <div class="row partner-container">
             {% for partner in partner_list %}
                 {% include 'index.partner.html' %}
             {% endfor %}
-            <div class="clear"></div>
         </div>
     </div>
 </div>
@@ -118,198 +81,163 @@
             Gelegenheit für den Gedankenaustausch unter Mitgliedern.
         </p>
         <h2>Vorstand</h2>
-        <div class="vorstand floating-container">
-            <div class="mitglied">
-                <img src="{% static 'img/portrait/ruedi.jpg' %}">
-                <span>
-                    <strong>Präsident</strong>
-                    <br>Ruedi Gitzi
-                    <br>
-                    <a href="mailto:praesident@sepawa.ch">Email</a>
-                </span>
+        <div class="vorstand row">
+            <div class="mitglied col-12 col-sm-6">
+                <div class="inner">
+                    <img src="{% static 'img/portrait/ruedi.jpg' %}">
+                    <span>
+                        <strong>Präsident</strong>
+                        <br>Ruedi Gitzi
+                        <br>
+                        <a href="mailto:praesident@sepawa.ch">Email</a>
+                    </span>
+                </div>
             </div>
-            <div class="mitglied">
-                <img src="{% static 'img/portrait/marco.jpg' %}">
-                <span>
-                    <strong>Aktuar und Stv. Präsident</strong>
-                    <br>Marco Bracher
-                    <br>
-                    <a href="mailto:praesident@sepawa.ch">Email</a>
-                </span>
+            <div class="mitglied col-12 col-sm-6">
+                <div class="inner">
+                    <img src="{% static 'img/portrait/marco.jpg' %}">
+                    <span>
+                        <strong>Aktuar und Stv. Präsident</strong>
+                        <br>Marco Bracher
+                        <br>
+                        <a href="mailto:m.bracher@hydrior.ch">Email</a>
+                    </span>
+                </div>
             </div>
-            <div class="mitglied">
-                <img src="{% static 'img/portrait/roland.jpg' %}">
-                <span>
-                    <strong>Kassier</strong>
-                    <br>Roland Borner
-                    <br>
-                    <a href="mailto:praesident@sepawa.ch">Email</a>
-                </span>
+            <div class="mitglied col-12 col-sm-6">
+                <div class="inner">
+                    <img src="{% static 'img/portrait/roland.jpg' %}">
+                    <span>
+                        <strong>Kassier</strong>
+                        <br>Roland Borner
+                        <br>
+                        <a href="mailto:kassier@sepawa.ch">Email</a>
+                    </span>
+                </div>
             </div>
-            <div class="mitglied">
-                <img src="{% static 'img/portrait/thomas.jpg' %}">
-                <span>
-                    <strong>Verbindung zur Hochschule</strong>
-                    <br>Dr. Thomas Hofmann
-                    <br>
-                    <a href="mailto:praesident@sepawa.ch">Email</a>
-                </span>
+            <div class="mitglied col-12 col-sm-6">
+                <div class="inner">
+                    <img src="{% static 'img/portrait/thomas.jpg' %}">
+                    <span>
+                        <strong>Verbindung zur Hochschule</strong>
+                        <br>Dr. Thomas Hofmann
+                        <br>
+                        <a href="mailto:htom@zhaw.ch">Email</a>
+                    </span>
+                </div>
             </div>
-            <div class="mitglied">
-                <img src="{% static 'img/portrait/horst.jpg' %}">
-                <span>
-                    <strong>Mitglied des Vorstandes der SEPAWA e.V.</strong>
-                    <br>Dr. Horst Lothar Möhle
-                    <br>
-                    <a href="mailto:praesident@sepawa.ch">Email</a>
-                </span>
+            <div class="mitglied col-12 col-sm-6">
+                <div class="inner">
+                    <img src="{% static 'img/portrait/horst.jpg' %}">
+                    <span>
+                        <strong>Mitglied des Vorstandes der SEPAWA e.V.</strong>
+                        <br>Dr. Horst Lothar Möhle
+                        <br>
+                        <a href="mailto:lothar.moehle@kolb.ch">Email</a>
+                    </span>
+                </div>
             </div>
-            <div class="mitglied">
-                <img src="{% static 'img/portrait/marina.jpg' %}">
-                <span>
-                    <strong>Vertreterin der Parfümindustrie</strong>
-                    <br>Marina Simeunovic
-                    <br>
-                    <a href="mailto:praesident@sepawa.ch">Email</a>
-                </span>
+            <div class="mitglied col-12 col-sm-6">
+                <div class="inner">
+                    <img src="{% static 'img/portrait/marina.jpg' %}">
+                    <span>
+                        <strong>Vertreterin der Parfümindustrie</strong>
+                        <br>Marina Simeunovic
+                        <br>
+                        <a href="mailto:simeunovic.marina@luzi.ch">Email</a>
+                    </span>
+                </div>
             </div>
-            <div class="clear"></div>
         </div>
     </div>
 </div>
 <a name="links"></a>
 <div class="darker">
-    <div class="container">
+    <div class="container links">
         <h1>Links</h1>
         <h2>Nützliche Links</h2>
-        <table class="links">
-            <tr>
-                <td>Anmeldestelle Chemikalien (BAG)</td>
-                <td>
-                    <a href="http://www.bag.admin.ch" target="_blank">www.bag.admin.ch</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Übersetzer D/E/F/ES</td>
-                <td>
-                    <a href="http://dict.leo.org" target="_blank">dict.leo.org</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Zolltarife EU (TARIC)</td>
-                <td>
-                    <a href="http://ec.europa.eu/taxation_customs/dds2/taric" target="_blank">ec.europa.eu/taxation_customs/dds2/taric</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Zolltarife Schweiz (TARES)</td>
-                <td>
-                    <a href="http://xtares.admin.ch/tares  " target="_blank">xtares.admin.ch/tares</a>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Anmeldestelle Chemikalien (BAG)</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.bag.admin.ch" target="_blank">www.bag.admin.ch</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Übersetzer D/E/F/ES</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://dict.leo.org" target="_blank">dict.leo.org</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Zolltarife EU (TARIC)</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://ec.europa.eu/taxation_customs/dds2/taric" target="_blank">ec.europa.eu</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Zolltarife Schweiz (TARES)</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://xtares.admin.ch/tares" target="_blank">xtares.admin.ch</a></div>
+        </div>
 
         <h2>Schulen / Weiterbildung</h2>
-        <table class="links">
-            <tr>
-                <td>Chemiestudium an der Fachhochschule Wädenswil</td>
-                <td>
-                    <a href="http://www.lsfm.zhaw.ch" target="_blank">www.lsfm.zhaw.ch</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Hochschule Luzern, Technik &amp; Architektur</td>
-                <td>
-                    <a href="http://www.hslu.ch/technik-architektur" target="_blank">www.hslu.ch/technik-architektur</a>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Chemiestudium an der Fachhochschule Wädenswil</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.lsfm.zhaw.ch" target="_blank">www.lsfm.zhaw.ch</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Hochschule Luzern, Technik &amp; Architektur</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.hslu.ch/technik-architektur" target="_blank">www.hslu.ch</a></div>
+        </div>
 
         <h2>Verbände / Vereine</h2>
-        <table class="links">
-            <tr>
-                <td>Deutsche Gesellschaft für wissenschaftliche und angewandte Kosmetik E.V.</td>
-                <td>
-                    <a href="http://www.dgk-ev.de" target="_blank">www.dgk-ev.de</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Gesellschaft Schweizerischer Kosmetik-Chemiker</td>
-                <td>
-                    <a href="http://www.swissscc.ch" target="_blank">www.swissscc.ch</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Schweizerischer Kosmetik- und Waschmittelverband SKW</td>
-                <td>
-                    <a href="http://www.skw-cds.ch" target="_blank">www.skw-cds.ch</a>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Deutsche Gesellschaft für wissenschaftliche und angewandte Kosmetik E.V.</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.dgk-ev.de" target="_blank">www.dgk-ev.de</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Gesellschaft Schweizerischer Kosmetik-Chemiker</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.swissscc.ch" target="_blank">www.swissscc.ch</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Schweizerischer Kosmetik- und Waschmittelverband SKW</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.skw-cds.ch" target="_blank">www.skw-cds.ch</a></div>
+        </div>
 
         <h2>Zeitschriften</h2>
-        <table class="links">
-            <tr>
-                <td>CHEManager</td>
-                <td>
-                    <a href="http://ww.chemanager-online.com" target="_blank">www.chemanager-online.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Chemie Technik</td>
-                <td>
-                    <a href="http://www.chemietechnik.de" target="_blank">www.chemietechnik.de</a>
-                </td>
-            </tr>
-            <tr>
-                <td>COSSMA Cosmetics, Spray Technology and Marketin</td>
-                <td>
-                    <a href="http://www.cossma.com" target="_blank">www.cossma.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Euro Cosmetics</td>
-                <td>
-                    <a href="http://www.eurocosmetics-magazine.com" target="_blank">www.eurocosmetics-magazine.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>European Journal of Lipid Science and Technology</td>
-                <td>
-                    <a href="http://www.wiley-vch.de/publish/en/journals/alphabeticIndex/2114/" target="_blank">www.wiley-vch.de</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Kosmetik International</td>
-                <td>
-                    <a href="http://www.ki-online.de" target="_blank">www.ki-online.de</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Personal Care Magazine</td>
-                <td>
-                    <a href="http://www.personalcaremagazine.com" target="_blank">www.personalcaremagazine.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>SOFW Journal</td>
-                <td>
-                    <a href="http://www.sofw.com" target="_blank">www.sofw.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Tenside Surfactants Detergents Journal (TDS)</td>
-                <td>
-                    <a href="http://www.tsdjournal.com" target="_blank">www.tsdjournal.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>The Chemical Week</td>
-                <td>
-                    <a href="http://www.chemweek.com" target="_blank">www.chemweek.com</a>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">CHEManager</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://ww.chemanager-online.com" target="_blank">www.chemanager-online.com</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Chemie Technik</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.chemietechnik.de" target="_blank">www.chemietechnik.de</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">COSSMA Cosmetics, Spray Technology and Marketin</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.cossma.com" target="_blank">www.cossma.com</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Euro Cosmetics</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.eurocosmetics-magazine.com" target="_blank">www.eurocosmetics-magazine.com</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">European Journal of Lipid Science and Technology</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.wiley-vch.de/publish/en/journals/alphabeticIndex/2114/" target="_blank">www.wiley-vch.de</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Kosmetik International</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.ki-online.de" target="_blank">www.ki-online.de</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Personal Care Magazine</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.personalcaremagazine.com" target="_blank">www.personalcaremagazine.com</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">SOFW Journal</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.sofw.com" target="_blank">www.sofw.com</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">Tenside Surfactants Detergents Journal (TDS)</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.tsdjournal.com" target="_blank">www.tsdjournal.com</a></div>
+        </div>
+        <div class="row">
+            <div class="link-name col-12 col-sm-6">The Chemical Week</div>
+            <div class="link-url col-12 col-sm-6"><a href="http://www.chemweek.com" target="_blank">www.chemweek.com</a></div>
+        </div>
     </div>
 </div>
 {% endblock %}
