@@ -40,7 +40,12 @@ class NeuigkeitAdmin(admin.ModelAdmin):
     search_fields = ['titel', 'inhalt', 'datum']
     inlines = [ AnhangInlineAdmin ]
 
+class DokumentAdmin(admin.ModelAdmin):
+    list_display = ['titel', 'datum', 'dokument']
+    search_fields = ['titel', 'beschreibung', 'datum']
+
 admin.site.register(models.Partner, PartnerAdmin)
 admin.site.register(models.Adresse, AdresseAdmin)
 admin.site.register(models.FotoGalerie, FotoGalerieAdmin)
 admin.site.register(models.Neuigkeit, NeuigkeitAdmin)
+admin.site.register(models.Dokument, DokumentAdmin)

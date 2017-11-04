@@ -1,44 +1,217 @@
+html,
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 18px;
     color: #0A302D;
-}
-
-header {
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.welcome {
-    position: absolute;
-    width: 100%;
+    background-color: rgba(99, 137, 134, 0.2);
     height: 100%;
-    min-height: 800px;
-    background-image: url(img/background_1.jpg);
+}
+
+a {
+    text-decoration: underline;
+    color: #0A302D;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #0A302D;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-size: 35px;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar li {
+    padding: 0 10px;
+    font-size: 20px;
+    color: #002A64;
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar li .indicator {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #002A64;
+}
+
+.navbar li:hover .indicator {
+    display: block;
+}
+
+.navbar li a {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100px;
+    width: 100%;
+    text-decoration: none;
+    color: #002A64;
+}
+
+.navbar-toggler {
+    color: #002A64;
+    border-color: #002A64;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#002A64' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.header {
+    position: relative;
+    height: 100%;
+    min-height: 680px;
+    background-image: url('/static/img/background_1.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    top: 0;
 }
 
-.mr-auto {
-    margin-right: 0!important;
-    margin-left: auto!important;
+.welcome {
+    position: relative;
+    max-width: 600px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 28px;
+    font-style: italic;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    opacity: 0.8;
+    margin-top: 50px;
 }
 
-.navbar {
-    padding: 0 20px;
+.welcome .bracket {
+    position: absolute;
+    top: -15px;
+    left: -60px;
+    font-size: 100px;
+    color: #FFE171;
 }
 
-.navbar .nav-item .nav-link {
-    padding: 30px 15px;
-    font-size: 1.3em;
-    color: #002A64;
-    border-bottom: 3px solid rgba(0, 0, 0, 0);
+.welcome-partner {
+    position: absolute;
+    bottom: 20px;
 }
 
-.navbar .nav-item .nav-link:hover {
-    color: #002A64;
-    border-bottom: 3px solid #002A64;
+.darker {
+    padding: 20px 0;
+    background-color: rgba(99, 137, 134, 0.5);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.brighter {
+    padding: 20px 0;
+    background-color: rgba(99, 137, 134, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 900px;
+}
+
+.partner {
+    float: left;
+    margin: 20px 0 20px 40px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.partner img {
+    padding: 14.5px;
+    background-color: white;
+    float: left;
+    opacity: 0.8;
+}
+
+.header .partner img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    /* Firefox 3.5+ */
+    filter: gray;
+    /* IE6-9 */
+    -webkit-filter: grayscale(100%);
+    /* Chrome 19+ & Safari 6+ */
+    opacity: 0.5;
+}
+
+.partner:hover img {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+    opacity: 1;
+}
+
+.vorstand .mitglied {
+    float: left;
+    margin: 20px 0 20px 40px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.vorstand .mitglied img {
+    display: block;
+    padding: 10px;
+    background-color: white;
+    float: left;
+    opacity: 0.8;
+    width: 405px;
+}
+
+.vorstand .mitglied span {
+    display: block;
+    margin: 10px;
+}
+
+.links {
+    width: 100%;
+}
+
+.links td {
+    width: 50%;
+    padding: 10px 0;
+    margin: 0;
+    vertical-align: top;
+}
+
+.floating-container {
+    margin-left: -40px;
+}
+
+.clear {
+    clear: both;
+}
+
+.content {
+    padding-top: 50px;
+}
+
+.adressen {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 0.9em;
 }

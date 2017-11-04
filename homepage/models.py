@@ -20,6 +20,10 @@ def anhang_path(instance, filename):
     hex_dig = binascii.hexlify(os.urandom(50))[:8].decode()
     return 'anhang/{0}/{1}'.format(hex_dig, filename)
 
+def dokument_path(instance, filename):
+    hex_dig = binascii.hexlify(os.urandom(50))[:8].decode()
+    return 'dokument/{0}/{1}'.format(hex_dig, filename)
+
 class Partner(models.Model):
     name = models.CharField(max_length=50)
     url = models.URLField()
@@ -80,6 +84,7 @@ class Adresse(models.Model):
     class Meta:
         verbose_name = 'Adresse'
         verbose_name_plural = 'Adressen'
+        ordering = ['typ', 'firma', 'nachname', 'vorname']
 
     def __str__(self):
         return self.vorname + ' ' + self.nachname
@@ -136,6 +141,21 @@ class Anhang(models.Model):
     class Meta:
         verbose_name = 'Anhang'
         verbose_name_plural = 'Anhänge'
+
+    def __str__(self):
+        return self.titel
+
+class Dokument(models.Model):
+    titel = models.CharField(max_length=100)
+    beschreibung = models.TextField(blank=True)
+    dokument = models.FileField(upload_to=dokument_path, max_length=255)
+    datum = models.DateField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Dokument'
+        verbose_name_plural = 'Dokumente'
 
     def __str__(self):
         return self.titel
