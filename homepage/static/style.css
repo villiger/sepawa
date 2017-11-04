@@ -213,5 +213,9 @@ label {
 .adressen {
     padding-left: 50px;
     padding-right: 50px;
-    font-size: 0.8em;
+    font-size: 0.7em;
+}
+
+.adressen td {
+    white-space: nowrap;
 }
