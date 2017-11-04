@@ -84,7 +84,7 @@ class Adresse(models.Model):
     class Meta:
         verbose_name = 'Adresse'
         verbose_name_plural = 'Adressen'
-        ordering = ['typ', 'firma', 'nachname', 'vorname']
+        ordering = ['-typ', 'firma', 'nachname', 'vorname']
 
     def __str__(self):
         return self.vorname + ' ' + self.nachname
