@@ -276,8 +276,12 @@ label {
 
 .table tbody tr td,
 .table thead tr th {
-    white-space: nowrap;
     border-color: rgb(145, 168, 166);
+}
+
+.adressen .table tbody tr td,
+.adressen .table thead tr th {
+    white-space: nowrap;
 }
 
 @media screen and (min-width: 768px) {
