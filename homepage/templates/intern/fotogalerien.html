@@ -4,9 +4,23 @@
 
 {% block content %}
     <h1>Fotogalerien</h1>
-    {% for fotogalerie in fotogalerie_list %}
-        {% include 'intern/fotogalerien.galerie.html' %}
-    {% empty %}
-        <p>Keine Fotogalerien vorhanden.</p>
-    {% endfor %}
+    <div class="foto-container row">
+        {% for fotogalerie in fotogalerie_list %}
+            <div class="foto col-xs-12 col-sm-6 col-md-4">
+                <a href="/intern/fotogalerien/{{ fotogalerie.id }}/">
+                    {% if fotogalerie.foto_set.first %}
+                        <img src="{{ fotogalerie.foto_set.first.thumbnail.url }}" alt="{{ fotogalerie.titel }}">
+                    {% else %}
+                        <div class="placeholder"></div>
+                    {% endif %}
+                    <div class="caption" title="{{ fotogalerie.titel }}">
+                        {{ fotogalerie.titel }}<br>
+                        <small>{{ fotogalerie.datum|date:'d.m.Y' }}</small>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <p>Keine Fotogalerien vorhanden.</p>
+        {% endfor %}
+    </div>
 {% endblock %}

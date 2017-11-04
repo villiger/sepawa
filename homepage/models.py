@@ -34,6 +34,7 @@ class Partner(models.Model):
     class Meta:
         verbose_name = 'Partner'
         verbose_name_plural = 'Partner'
+        ordering = ['name']
 
     def absolute_url(self):
         if self.url.__str__().startswith("http"):
@@ -98,6 +99,7 @@ class FotoGalerie(models.Model):
     class Meta:
         verbose_name = 'Fotogalerie'
         verbose_name_plural = 'Fotogalerien'
+        ordering = ['-datum']
 
     def __str__(self):
         return self.titel
@@ -105,8 +107,8 @@ class FotoGalerie(models.Model):
 class Foto(models.Model):
     galerie = models.ForeignKey(FotoGalerie, on_delete=models.CASCADE)
     titel = models.CharField(max_length=100, blank=True)
-    image = ProcessedImageField(upload_to=foto_image_path, processors=[ResizeToFit(1200, 1200, upscale=False)], format='JPEG')
-    thumbnail = ImageSpecField(source='image', processors=[Thumbnail(200, 150)], format='JPEG')
+    image = ProcessedImageField(upload_to=foto_image_path, processors=[ResizeToFit(1500, 1500, upscale=False)], format='JPEG')
+    thumbnail = ImageSpecField(source='image', processors=[Thumbnail(320, 240, upscale=True)], format='JPEG')
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -127,6 +129,7 @@ class Neuigkeit(models.Model):
     class Meta:
         verbose_name = 'Neuigkeit'
         verbose_name_plural = 'Neuigkeiten'
+        ordering = ['-datum']
 
     def __str__(self):
         return self.titel
@@ -141,6 +144,7 @@ class Anhang(models.Model):
     class Meta:
         verbose_name = 'Anhang'
         verbose_name_plural = 'Anhänge'
+        ordering = ['titel']
 
     def __str__(self):
         return self.titel
@@ -156,6 +160,7 @@ class Dokument(models.Model):
     class Meta:
         verbose_name = 'Dokument'
         verbose_name_plural = 'Dokumente'
+        ordering = ['-datum', 'titel']
 
     def __str__(self):
         return self.titel

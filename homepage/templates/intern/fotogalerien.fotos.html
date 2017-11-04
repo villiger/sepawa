@@ -1,0 +1,29 @@
+{% extends "base/content.html" %}
+
+{% load static %}
+
+{% block content %}
+    <h1>{{ fotogalerie.datum|date:'d.m.Y' }} &mdash; {{ fotogalerie.titel }}</h1>
+    <div class="foto-container row">
+        {% for foto in fotogalerie.foto_set.all %}
+            <div class="foto col-xs-12 col-sm-6 col-md-4">
+                <a href="{{ foto.image.url }}" data-toggle="lightbox" data-gallery="fotogalerie" data-footer="{{ foto.titel }}">
+                    <img src="{{ foto.thumbnail.url }}" alt="{{ foto.titel }}">
+                </a>
+            </div>
+        {% empty %}
+            <p>Keine Fotos vorhanden.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block bottom %}
+    <script>
+        $(function() {
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+        });
+    </script>
+{% endblock %}

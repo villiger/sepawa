@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ neuigkeit.titel }}</h1>
+    <h1>{{ neuigkeit.datum|date:'d.m.Y' }} &mdash; {{ neuigkeit.titel }}</h1>
     <p>{{ neuigkeit.inhalt|safe }}</p>
     <ul>
         {% for anhang in neuigkeit.anhang_set.all %}

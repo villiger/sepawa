@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^intern/adressen/$', views.intern_adressen),
     url(r'^intern/dokumente/$', views.intern_dokumente),
     url(r'^intern/fotogalerien/$', views.intern_fotogalerien),
+    url(r'^intern/fotogalerien/(?P<id>\w+)/$', views.intern_fotogalerien_fotos),
     url(r'^intern/$', views.intern_index, name='intern'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),

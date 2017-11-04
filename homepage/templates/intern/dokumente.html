@@ -4,9 +4,27 @@
 
 {% block content %}
     <h1>Dokumente</h1>
-    {% for dokument in dokument_list %}
-        {% include 'intern/dokumente.dokument.html' %}
-    {% empty %}
-        <p>Keine Dokumente vorhanden.</p>
-    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Dokument</th>
+                <th>Beschreibung</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dokument in dokument_list %}
+                <tr>
+                    <td>{{ dokument.datum|date:"d.m.Y" }}</td>
+                    <td><strong><a href="{{ dokument.dokument.datei.url }}" target="_blank">{{ dokument.titel }}</a></strong></td>
+                    <td>{{ dokument.beschreibung|linebreaksbr }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">Keine Dokumente vorhanden.
+                </td>
+            {% endfor %}
+        </tbody>
+    </table>
+    
 {% endblock %}
