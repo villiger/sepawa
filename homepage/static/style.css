@@ -6,8 +6,7 @@ body {
     font-weight: 300;
     font-size: 18px;
     color: #0A302D;
-    background-color: rgba(99, 137, 134, 0.2);
-    height: 100%;
+    background-color: #C6D4D3;
 }
 
 a {
@@ -88,7 +87,7 @@ label {
 .header {
     position: relative;
     height: 100%;
-    min-height: 680px;
+    min-height: 650px;
     background-image: url('/static/img/background_1.jpg');
     background-size: cover;
     background-position: center center;
@@ -98,19 +97,19 @@ label {
 
 .welcome {
     position: relative;
-    max-width: 600px;
+    max-width: 500px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 28px;
+    font-size: 25px;
     font-style: italic;
     color: white;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     opacity: 0.8;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .welcome .bracket {
     position: absolute;
-    top: -15px;
+    top: -20px;
     left: -60px;
     font-size: 100px;
     color: #FFE171;
@@ -122,14 +121,14 @@ label {
 }
 
 .darker {
-    padding: 20px 0;
-    background-color: rgba(99, 137, 134, 0.5);
+    padding: 30px 0;
+    background-color: rgb(159, 184, 182);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .brighter {
-    padding: 20px 0;
-    background-color: rgba(99, 137, 134, 0.2);
+    padding: 30px 0;
+    background-color: rgb(191, 207, 206);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -214,8 +213,10 @@ label {
     padding-left: 50px;
     padding-right: 50px;
     font-size: 0.7em;
+    overflow-x: scroll;
 }
 
-.adressen td {
+.adressen td, th {
     white-space: nowrap;
+    border-color: rgb(145, 168, 166);
 }

@@ -68,10 +68,10 @@
     <div class="container">
         <h1>Neuigkeiten</h1>
         {% for neuigkeit in neuigkeit_list %}
-            <h2>{{ neuigkeit.datum }} &mdash; {{ neuigkeit.titel }}</h2>
+            <h2>{{ neuigkeit.datum|date:'d.m.Y' }} &mdash; {{ neuigkeit.titel }}</h2>
             <p>
                 {{ neuigkeit.inhalt|striptags|truncatewords:30|safe }}
-                <a href="/neuigkeit/{{ neuigkeit.id }}">Mehr</a>
+                <strong><a href="/neuigkeit/{{ neuigkeit.id }}">Mehr</a></strong>
             </p>
         {% empty %}
             <p>Keine Neuigkeiten vorhanden.</p>
