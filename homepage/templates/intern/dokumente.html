@@ -4,4 +4,9 @@
 
 {% block content %}
     <h1>Dokumente</h1>
+    {% for dokument in dokument_list %}
+        {% include 'intern/dokumente.dokument.html' %}
+    {% empty %}
+        <p>Keine Dokumente vorhanden.</p>
+    {% endfor %}
 {% endblock %}

@@ -206,13 +206,22 @@ label {
 }
 
 .adressen {
-    padding-left: 50px;
-    padding-right: 50px;
     font-size: 0.7em;
     overflow-x: scroll;
 }
 
-.adressen td, th {
+.adressen .inner {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.adressen table {
+    width: none;
+}
+
+.adressen td,
+.adressen thead th {
     white-space: nowrap;
     border-color: rgb(145, 168, 166);
 }

@@ -4,4 +4,9 @@
 
 {% block content %}
     <h1>Fotogalerien</h1>
+    {% for fotogalerie in fotogalerie_list %}
+        {% include 'intern/fotogalerien.galerie.html' %}
+    {% empty %}
+        <p>Keine Fotogalerien vorhanden.</p>
+    {% endfor %}
 {% endblock %}
