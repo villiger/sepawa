@@ -24,6 +24,12 @@ def neuigkeit(request, id):
         'neuigkeit': neuigkeit
     })
 
+def neuigkeiten(request):
+    neuigkeit_list = neuigkeit_list = Neuigkeit.objects.order_by('-datum')
+    return render(request, 'neuigkeiten.html', {
+        'neuigkeit_list': neuigkeit_list
+    })
+
 @login_required
 def intern_index(request):
     return render(request, 'intern/index.html')

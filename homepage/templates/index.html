@@ -35,11 +35,17 @@
             <h2>{{ neuigkeit.datum|date:'d.m.Y' }} &mdash; {{ neuigkeit.titel }}</h2>
             <p>
                 {{ neuigkeit.inhalt|striptags|truncatewords:30|safe }}
-                <strong><a href="/neuigkeit/{{ neuigkeit.id }}">Mehr</a></strong>
+                <strong><a href="/neuigkeit/{{ neuigkeit.id }}/">Mehr</a></strong>
             </p>
         {% empty %}
             <p>Keine Neuigkeiten vorhanden.</p>
         {% endfor %}
+        <p>
+            <small>
+                <br>
+                <a href="/neuigkeiten">Ältere Inhalte anzeigen</a>
+            </small>
+        </p>
     </div>
 </div>
 <a name="partner"></a>

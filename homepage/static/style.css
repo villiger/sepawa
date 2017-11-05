@@ -284,7 +284,8 @@ label {
     white-space: nowrap;
 }
 
-.dokumente {
+.dokumente,
+.neuigkeiten {
     font-size: 0.8em;
 }
 

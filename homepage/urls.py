@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^neuigkeit/(?P<id>\w+)/$', views.neuigkeit),
+    url(r'^neuigkeiten/$', views.neuigkeiten),
     url(r'^intern/$', views.intern_index, name='intern'),
     url(r'^intern/adressen/$', views.intern_adressen),
     url(r'^intern/dokumente/$', views.intern_dokumente),
