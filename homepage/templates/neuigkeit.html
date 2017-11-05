@@ -10,7 +10,7 @@
             {% for anhang in neuigkeit.anhang_set.all %}
                 <tr>
                     <td class="column-icon"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
-                    <td class="column-name"><a href="/{{ anhang.datei.url }}" target="_blank">{{ anhang.titel }}</a></td>
+                    <td class="column-name"><a href="{{ anhang.datei.url }}" target="_blank">{{ anhang.titel }}</a></td>
                 </tr>
             {% endfor %}
         </table>
