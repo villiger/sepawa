@@ -10,7 +10,7 @@ from django.views.generic.edit import FormView
 from .models import Partner, Neuigkeit, Adresse, Dokument, FotoGalerie, Foto
 
 def index(request):
-    neuigkeit_list = Neuigkeit.objects.order_by('-datum')[:4]
+    neuigkeit_list = Neuigkeit.objects.order_by('-datum')[:3]
     partner_list = Partner.objects.order_by('?')
     return render(request, 'index.html', {
         'neuigkeit_list': neuigkeit_list,
