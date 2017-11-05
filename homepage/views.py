@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from .models import Partner, Neuigkeit, Adresse, Dokument, FotoGalerie, Foto
-from .forms import FileFieldForm
 
 def index(request):
     neuigkeit_list = Neuigkeit.objects.order_by('-datum')[:4]
