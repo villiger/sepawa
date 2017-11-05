@@ -5,9 +5,14 @@
 {% block content %}
     <h1>{{ neuigkeit.datum|date:'d.m.Y' }} &mdash; {{ neuigkeit.titel }}</h1>
     <p>{{ neuigkeit.inhalt|safe }}</p>
-    <ul>
-        {% for anhang in neuigkeit.anhang_set.all %}
-            <li><a href="/{{ anhang.datei.url }}" target="_blank">{{ anhang.titel }}</a></li>
-        {% endfor %}
-    </ul>
+    {% if neuigkeit.anhang_set.count > 0 %}
+        <table class="anhaenge">
+            {% for anhang in neuigkeit.anhang_set.all %}
+                <tr>
+                    <td class="column-icon"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></td>
+                    <td class="column-name"><a href="/{{ anhang.datei.url }}" target="_blank">{{ anhang.titel }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 {% endblock %}

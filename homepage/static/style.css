@@ -288,6 +288,14 @@ label {
     font-size: 0.8em;
 }
 
+.anhaenge {
+    margin-top: 20px;
+}
+
+.anhaenge .glyphicon-file {
+    margin-right: 3px;
+}
+
 @media screen and (min-width: 768px) {
     html,
     body {

@@ -16,7 +16,10 @@
             {% for dokument in dokument_list %}
                 <tr>
                     <td>{{ dokument.datum|date:"d.m.Y" }}</td>
-                    <td><strong><a href="{{ dokument.dokument.datei.url }}" target="_blank">{{ dokument.titel }}</a></strong></td>
+                    <td>
+                        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                        <strong><a href="{{ dokument.dokument.datei.url }}" target="_blank">{{ dokument.titel }}</a></strong>
+                    </td>
                     <td>{{ dokument.beschreibung|linebreaksbr }}</td>
                 </tr>
             {% empty %}
