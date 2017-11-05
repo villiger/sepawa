@@ -36,8 +36,8 @@ class FotoGalerieAdmin(MultiUploadAdmin):
     multiupload_list = False
 
     def process_uploaded_file(self, uploaded, galerie, request):
-        title = kwargs.get('title', [''])[0]
-        foto = galerie.foto_set.create(image=uploaded, title=title)
+        titel = request.POST.get('title', None)
+        foto = galerie.foto_set.create(image=uploaded, titel=titel)
         foto.save()
         return {
             'url': foto.image.url,
