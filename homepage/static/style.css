@@ -298,6 +298,18 @@ label {
     margin-right: 3px;
 }
 
+.intern-navigation {
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.intern-navigation li {
+    list-style-type: none;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
 @media screen and (min-width: 768px) {
     html,
     body {
