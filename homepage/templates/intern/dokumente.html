@@ -18,7 +18,7 @@
                     <td>{{ dokument.datum|date:"d.m.Y" }}</td>
                     <td>
                         <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-                        <strong><a href="{{ dokument.dokument.datei.url }}" target="_blank">{{ dokument.titel }}</a></strong>
+                        <strong><a href="{{ dokument.dokument.url }}" target="_blank">{{ dokument.titel }}</a></strong>
                     </td>
                     <td>{{ dokument.beschreibung|linebreaksbr }}</td>
                 </tr>
