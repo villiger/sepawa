@@ -40,11 +40,11 @@ def intern_adressen(request):
     search = request.GET.get('search')
     if search:
         adresse_list = Adresse.objects.filter(
-            Q(firma__contains=search) |
-            Q(vorname__contains=search) |
-            Q(nachname__contains=search) |
-            Q(ort__contains=search) |
-            Q(land__contains=search)
+            Q(firma__icontains=search) |
+            Q(vorname__icontains=search) |
+            Q(nachname__icontains=search) |
+            Q(ort__icontains=search) |
+            Q(land__icontains=search)
         )
     else:
         adresse_list = Adresse.objects.all()

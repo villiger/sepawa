@@ -8,9 +8,9 @@
     <div class="adressen content">
         <div class="inner">
             <h1>Adressen</h1>
-            <form action="{% url 'adressen' %}" method="GET">
+            <form action="{% url 'adressen' %}" method="GET" style="margin-bottom: 20px;">
                 <input type="text" name="search">
-                <submit>Suchen</submit>
+                <input type="submit" value="Suchen">
             </form>
             {% if adresse_list %}
                 <table class="table">

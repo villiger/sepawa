@@ -76,7 +76,7 @@ class Adresse(models.Model):
     adresse = models.CharField(max_length=50)
     plz = models.CharField(max_length=10, verbose_name='PLZ')
     ort = models.CharField(max_length=50)
-    land = models.CharField(max_length=2)
+    land = models.CharField(max_length=2, blank=True)
     email_firma = models.EmailField(max_length=50, blank=True, verbose_name='Email geschäftlich')
     email_privat = models.EmailField(max_length=50, blank=True, verbose_name='Email privat')
     updated = models.DateTimeField(auto_now=True)
