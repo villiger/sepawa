@@ -8,48 +8,54 @@
     <div class="adressen content">
         <div class="inner">
             <h1>Adressen</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Typ</th>
-                        <th>Firma</th>
-                        <th>Anrede</th>
-                        <th>Titel</th>
-                        <th>Nachname</th>
-                        <th>Vorname</th>
-                        <th>Adresse</th>
-                        <th>PLZ / Ort</th>
-                        <th>Land</th>
-                        <th>Email geschäftlich</th>
-                        <th>Email privat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for adresse in adresse_list %}
+            <form action="{% url 'adressen' %}" method="GET">
+                <input type="text" name="search">
+                <submit>Suchen</submit>
+            </form>
+            {% if adresse_list %}
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ adresse.typ }}</td>
-                            <td>{{ adresse.firma }}</td>
-                            <td>{{ adresse.anrede }}</td>
-                            <td>{{ adresse.titel }}</td>
-                            <td>{{ adresse.nachname }}</td>
-                            <td>{{ adresse.vorname }}</td>
-                            <td>{{ adresse.adresse }}</td>
-                            <td>{{ adresse.plz }} {{ adresse.ort }}</td>
-                            <td>{{ adresse.land }}</td>
-                            <td>
-                                {% if adresse.email_firma %}
-                                    <a href="mailto:{{ adresse.email_firma }}">{{ adresse.email_firma }}</a>
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if adresse.email_privat %}
-                                    <a href="mailto:{{ adresse.email_privat }}">{{ adresse.email_privat }}</a>
-                                {% endif %}
-                            </td>
+                            <th>Firma</th>
+                            <th>Anrede</th>
+                            <th>Titel</th>
+                            <th>Nachname</th>
+                            <th>Vorname</th>
+                            <th>Adresse</th>
+                            <th>PLZ / Ort</th>
+                            <th>Land</th>
+                            <th>Email geschäftlich</th>
+                            <th>Email privat</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for adresse in adresse_list %}
+                            <tr>
+                                <td>{{ adresse.firma }}</td>
+                                <td>{{ adresse.anrede }}</td>
+                                <td>{{ adresse.titel }}</td>
+                                <td>{{ adresse.nachname }}</td>
+                                <td>{{ adresse.vorname }}</td>
+                                <td>{{ adresse.adresse }}</td>
+                                <td>{{ adresse.plz }} {{ adresse.ort }}</td>
+                                <td>{{ adresse.land }}</td>
+                                <td>
+                                    {% if adresse.email_firma %}
+                                        <a href="mailto:{{ adresse.email_firma }}">{{ adresse.email_firma }}</a>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if adresse.email_privat %}
+                                        <a href="mailto:{{ adresse.email_privat }}">{{ adresse.email_privat }}</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Keine Adressen gefunden.</p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

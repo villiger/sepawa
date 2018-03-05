@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.views.generic.edit import FormView
+from django.db.models import Q
 from .models import Partner, Neuigkeit, Adresse, Dokument, FotoGalerie, Foto
 
 def index(request):
@@ -36,7 +37,17 @@ def intern_index(request):
 
 @login_required
 def intern_adressen(request):
-    adresse_list = Adresse.objects.all()
+    search = request.GET.get('search')
+    if search:
+        adresse_list = Adresse.objects.find(
+            Q(firma__contains=search) |
+            Q(vorname__contains=search) |
+            Q(nachname__contains=search) |
+            Q(ort__contains=search) |
+            Q(land__contains=search)
+        )
+    else:
+        adresse_list = Adresse.objects.all()
     return render(request, 'intern/adressen.html', {
         'adresse_list': adresse_list
     })
