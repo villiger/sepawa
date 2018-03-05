@@ -39,7 +39,7 @@ def intern_index(request):
 def intern_adressen(request):
     search = request.GET.get('search')
     if search:
-        adresse_list = Adresse.objects.find(
+        adresse_list = Adresse.objects.filter(
             Q(firma__contains=search) |
             Q(vorname__contains=search) |
             Q(nachname__contains=search) |
