@@ -124,6 +124,14 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Email Configuration
+# https://docs.djangoproject.com/en/2.0/topics/email/
+
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_RECEIVER = ''
+
 # TinyMCE WYSIWYG editor
 # https://github.com/romanvm/django-tinymce4-lite
 

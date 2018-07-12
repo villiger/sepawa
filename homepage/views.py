@@ -4,10 +4,15 @@ from __future__ import unicode_literals
 import random
 
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from django.db.models import Q
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.template import Context
+from django.conf import settings
 from .models import Partner, Neuigkeit, Adresse, Dokument, FotoGalerie, Foto
 
 def index(request):
@@ -72,3 +77,32 @@ def intern_fotogalerien_fotos(request, id):
     return render(request, 'intern/fotogalerien.fotos.html', {
         'fotogalerie': fotogalerie
     })
+
+def anmeldung_gv(request, password=None):
+    if password is not None:
+        user = authenticate(request, username='sepawa', password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('anmeldung-gv')
+    
+    return redirect('/login/?next=/intern/anmeldung-gv/')
+
+@login_required
+def intern_anmeldung_gv(request):
+    if request.method == 'POST':
+        text = get_template('emails/anmeldung-gv.txt')
+        html = get_template('emails/anmeldung-gv.html')
+        text_content = text.render({}, request)
+        html_content = html.render({}, request)
+        subject, from_email, to = 'Anmeldung GV 2018', 'SEPAWA Webmaster <webmaster@sepawa.ch>', settings.EMAIL_RECEIVER
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+        return redirect('anmeldung-gv-ok')
+
+    return render(request, 'intern/anmeldung-gv.html')
+
+@login_required
+def intern_anmeldung_gv_ok(request):
+    return render(request, 'intern/anmeldung-gv-ok.html')

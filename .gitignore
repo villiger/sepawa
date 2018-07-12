@@ -2,5 +2,8 @@
 *.pyc
 *.sqlite3
 .vscode/
+.vagrant/
 media/
 __pycache__/
+*.log
+sepawa/lib/

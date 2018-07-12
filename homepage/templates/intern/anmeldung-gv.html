@@ -1,0 +1,121 @@
+{% extends "base/content.html" %}
+
+{% load static %}
+
+{% block content %}
+    <style>
+        label {
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        p.fieldset {
+            margin-top: 40px;
+        }
+
+        .gv-form {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border-collapse: collapse;
+        }
+
+        .gv-form td {
+            vertical-align: top;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-right: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <h1>Anmeldung zur 59. ordentlichen Generalversammlung</h1>
+    <p><strong>Vom 14. September 2018</strong></p>
+    <p>Bei Fa. Galliker AG, Kantonsstrasse 2, CH-6246 Altishofen und Stadt Zofingen</p>
+    <p>Anmeldung bis spätestens 31. August 2018 absenden.</p>
+    <form action="/intern/anmeldung-gv/" method="post">
+        {% csrf_token %}
+        <table width="100%" class="gv-form">
+            <tr>
+                <td width="50%">
+                    Ich / wir nehme(n) am Vormittagsprogramm teil:
+                </td>
+                <td width="50%">
+                    <label><input type="radio" name="vormittag" value="Ja" required> Ja /</label>
+                    <label><input type="radio" name="vormittag" value="Nein"> Nein</label><br />
+                    <label>Anzahl Personen: <input type="number" max="5" name="vormittag_anzahl" style="width: 40px; text-align: center;" /></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ich / wir nehme(n) am Nachmittagsprogramm teil:
+                </td>
+                <td>
+                    <label><input type="radio" name="nachmittag" value="Ja" required> Ja /</label>
+                    <label><input type="radio" name="nachmittag" value="Nein"> Nein</label><br />
+                    <label>Anzahl Personen: <input type="number" max="5" name="nachmittag_anzahl" style="width: 40px; text-align: center;" /></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        Ich / wir nehme(n) am Nachtessen teil:
+                </td>
+                <td>
+                    <label><input type="radio" name="nachtessen" value="Ja" required> Ja /</label>
+                    <label><input type="radio" name="nachtessen" value="Nein"> Nein</label><br />
+                    <label>Anzahl Personen: <input type="number" max="5" name="nachtessen_anzahl" style="width: 40px; text-align: center;" /></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ich / wir bevorzuge(n) vegetarisches Essen:<br />
+                </td>
+                <td>
+                    <label><input type="radio" name="vegetarisch" value="Ja" required> Ja /</label>
+                    <label><input type="radio" name="vegetarisch" value="Nein"> Nein</label><br />
+                    <label>Anzahl Personen: <input type="number" max="5" name="vegetarisch_anzahl" style="width: 40px; text-align: center;" /></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name(n):
+                </td>
+                <td>
+                    <input type="text" max="30" name="name_1" style="width: 100%;" required /><br />
+                    <label>Einzelmitglied:</label>
+                    <label><input type="radio" name="name_1_einzelmitglied" value="Ja" required> Ja /</label>
+                    <label><input type="radio" name="name_1_einzelmitglied" value="Nein"> Nein</label>
+                    <br />
+                    <br />
+                    <input type="text" max="30" name="name_2" style="width: 100%;" /><br />
+                    <label>Einzelmitglied:</label>
+                    <label><input type="radio" name="name_2_einzelmitglied" value="Ja"> Ja /</label>
+                    <label><input type="radio" name="name_2_einzelmitglied" value="Nein"> Nein</label>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Begleitperson:
+                </td>
+                <td>
+                    <label><input type="radio" name="begleitperson" value="Ja" required> Ja /</label>
+                    <label><input type="radio" name="begleitperson" value="Nein"> Nein</label><br />
+                    <input type="text" max="30" name="begleitperson_name" style="width: 100%;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Firma:
+                </td>
+                <td>
+                    <input type="text" max="30" name="firma" style="width: 100%;" /><br />
+                    <label>Firmenmitglied:</label>
+                    <label><input type="radio" name="firma_mitglied" value="Ja" required> Ja /</label>
+                    <label><input type="radio" name="firma_mitglied" value="Nein"> Nein</label>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Anmeldung absenden" />
+    </form>
+{% endblock %}

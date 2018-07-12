@@ -1,0 +1,86 @@
+
+<style>
+    .gv-form {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border-collapse: collapse;
+    }
+
+    .gv-form td {
+        vertical-align: top;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+</style>
+<h1>Anmeldung zur 59. ordentlichen Generalversammlung 2018</h1>
+<table class="gv-form">
+    <tr>
+        <td>
+            Ich / wir nehme(n) am Vormittagsprogramm teil:
+        </td>
+        <td>
+            <strong>{{ request.POST.vormittag }}</strong><br>
+            Anzahl Personen: <strong>{{ request.POST.vormittag_anzahl }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Ich / wir nehme(n) am Nachmittagsprogramm teil:
+        </td>
+        <td>
+            <strong>{{ request.POST.nachmittag }}</strong><br>
+            Anzahl Personen: <strong>{{ request.POST.nachmittag_anzahl }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Ich / wir nehme(n) am Nachtessen teil:
+        </td>
+        <td>
+            <strong>{{ request.POST.nachtessen }}</strong><br>
+            Anzahl Personen: <strong>{{ request.POST.nachtessen_anzahl }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Ich / wir bevorzuge(n) vegetarisches Essen:<br />
+        </td>
+        <td>
+            <strong>{{ request.POST.vegetarisch }}</strong><br>
+            Anzahl Personen: <strong>{{ request.POST.vegetarisch_anzahl }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Name(n):
+        </td>
+        <td>
+            <strong>{{ request.POST.name_1 }}</strong><br>
+            Einzelmitglied: <strong></strong>{{ request.POST.name_1_einzelmitglied }}</strong><br>
+            <br>
+            <strong>{{ request.POST.name_2 }}</strong><br>
+            {% if request.POST.name_2 %}Einzelmitglied: <strong>{{ request.POST.name_2_einzelmitglied }}</strong>{% endif %}<br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Begleitperson:
+        </td>
+        <td>
+            <strong>{{ request.POST.begleitperson }}</strong><br>
+            Name: <strong>{{ request.POST.begleitperson_name }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Firma:
+        </td>
+        <td>
+            <strong>{{ request.POST.firma }}</strong><br>
+            Firmenmitglied: <strong>{{ request.POST.firma_mitglied }}</strong>
+        </td>
+    </tr>
+</table>

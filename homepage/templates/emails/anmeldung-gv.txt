@@ -1,0 +1,17 @@
+Anmeldung zur 59. ordentlichen Generalversammlung 2018
+
+Ich / wir nehme(n) am Vormittagsprogramm teil: {{ request.POST.vormittag }} / Anzahl Personen: {{ request.POST.vormittag_anzahl }}
+
+Ich / wir nehme(n) am Nachmittagsprogramm teil: {{ request.POST.nachmittag }} / Anzahl Personen: {{ request.POST.nachmittag_anzahl }}
+
+Ich / wir nehme(n) am Nachtessen teil: {{ request.POST.nachtessen }} / Anzahl Personen: {{ request.POST.nachtessen_anzahl }}
+
+Ich / wir bevorzuge(n) vegetarisches Essen: {{ request.POST.vegetarisch }} / Anzahl Personen: {{ request.POST.vegetarisch_anzahl }}
+
+Namen:
+{{ request.POST.name_1 }} / Einzelmitglied: {{ request.POST.name_1_einzelmitglied }}
+{{ request.POST.name_2 }} / Einzelmitglied: {{ request.POST.name_2_einzelmitglied }}
+
+Begleitperson: {{ request.POST.begleitperson }} / Name: {{ request.POST.begleitperson_name }}
+
+Firma: {{ request.POST.firma }} / Firmenmitglied: {{ request.POST.firma_mitglied }}
