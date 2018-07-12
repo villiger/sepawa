@@ -94,8 +94,8 @@ def intern_anmeldung_gv(request):
         html = get_template('emails/anmeldung-gv.html')
         text_content = text.render({}, request)
         html_content = html.render({}, request)
-        subject, from_email, to = 'Anmeldung GV 2018', 'SEPAWA Webmaster <webmaster@sepawa.ch>', settings.EMAIL_RECEIVER
-        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        subject, from_email = 'Anmeldung GV 2018', 'SEPAWA Webmaster <webmaster@sepawa.ch>'
+        msg = EmailMultiAlternatives(subject, text_content, from_email, settings.EMAIL_RECEIVER)
         msg.attach_alternative(html_content, "text/html")
         msg.send()
 
