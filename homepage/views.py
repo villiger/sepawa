@@ -80,7 +80,7 @@ def intern_fotogalerien_fotos(request, id):
 
 def anmeldung_gv(request, password=None):
     if password is not None:
-        user = authenticate(request, username='sepawa', password=password)
+        user = authenticate(request, username='member', password=password)
         if user is not None:
             login(request, user)
             return redirect('anmeldung-gv')
