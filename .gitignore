@@ -7,3 +7,4 @@ media/
 __pycache__/
 *.log
 sepawa/lib/
+sepawa/settings_local.py

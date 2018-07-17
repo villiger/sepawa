@@ -38,10 +38,7 @@ SECRET_KEY = '$kk4p-l*=_)ky$7rakuj0k=i#bxi=nnsb$!3hzoa9kr!otk^$)'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
-    'new.sepawa.ch',
-    'www.sepawa.ch',
-    'sepawa.ch'
+    'localhost'
 ]
 
 
@@ -130,7 +127,10 @@ USE_TZ = True
 EMAIL_HOST = ''
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-EMAIL_RECEIVER = ''
+EMAIL_RECEIVER = [
+    'webmaster@sepawa.ch'
+]
+
 
 # TinyMCE WYSIWYG editor
 # https://github.com/romanvm/django-tinymce4-lite
